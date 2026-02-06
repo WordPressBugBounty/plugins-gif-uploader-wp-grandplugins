@@ -1,10 +1,10 @@
 === WP GIF Uploader ===
 Tags: gif, subsizes, upload, animation, gif upload, gif animation, gif subsizes, gif fix, wordpress gif
-Tested up to: 6.2.0
+Tested up to: 6.9
 Requires at least: 4.5.0
 Requires PHP: 5.4
-Version: 1.0.3
-Stable Tag: 1.0.3
+Version: 1.0.4
+Stable Tag: 1.0.4
 Contributors: GrandPlugins
 Author: GrandPlugins
 Plugin URI: https://grandplugins.com/product/wp-gif-editor-pro/

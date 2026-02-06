@@ -10,9 +10,10 @@ namespace GPLSCore\GPLS_PLUGIN_WGR;
  * Plugin URI:   https://grandplugins.com/product/wp-gif-editor/
  * Domain Path:  /languages
  * Requires PHP: 5.6
+ * Tested up to: 6.9
  * Text Domain:  wp-gif-editor
  * Std Name:     gpls-wgr-wp-gif-editor
- * Version:      1.0.3
+ * Version:      1.0.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
