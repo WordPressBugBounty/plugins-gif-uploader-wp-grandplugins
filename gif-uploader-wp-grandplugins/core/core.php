@@ -173,8 +173,8 @@ class Core {
 			ob_start();
 		}
 		?>
-		<a target="_blank" class="ms-2 btn gpls-permium-btn-wave btn-primary <?php echo esc_attr( $additional_classes ); ?>" href="<?php echo esc_url_raw( $pro_link ); ?>">
-			<span class="pro-title" style="position:relative;z-index:10;color:#FFF;"><?php printf( esc_html__( '%s' ), $btn_title ); ?> »</span>
+		<a target="_blank" class="ms-2 btn gpls-permium-btn-wave btn-primary <?php echo esc_attr( $additional_classes ); ?>" href="<?php echo esc_url( $pro_link ); ?>">
+			<span class="pro-title" style="position:relative;z-index:10;color:#FFF;"><?php echo esc_html( $btn_title ); ?> »</span>
 			<span class="wave"></span>
 		</a>
 		<?php if ( ! empty( $additional_css ) ) : ?>
@@ -202,7 +202,7 @@ class Core {
 		?>
 		<p class="notice notice-success p-4 <?php echo esc_attr( $is_dismissible ? 'is-dismissible' : '' ); ?>">
 			<?php esc_html_e( 'We would love your feedback. leaving ' ); ?>
-			<a class="text-decoration-none" href="<?php echo esc_url_raw( $review_link ); ?>" target="_blank">
+			<a class="text-decoration-none" href="<?php echo esc_url( $review_link ); ?>" target="_blank">
 				<u><?php esc_html_e( 'a review is much appreciated' ); ?></u>
 				<span class="dashicons dashicons-star-filled"></span>
 				<span class="dashicons dashicons-star-filled"></span>

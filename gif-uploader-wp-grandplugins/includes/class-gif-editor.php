@@ -107,7 +107,17 @@ class GIF_Editor {
 	public static function activate_notice( $post ) {
 		if ( is_object( $post ) && ( 'image/gif' === $post->post_mime_type ) ) {
 			?>
-			<div class="notice notice-warning" ><p><?php echo sprintf( __( 'You can apply all edits options on GIF without losing animation in %s version ', 'wp-gif-editor' ), '<a target="_blank" href="' . esc_url( self::$plugin_info['pro_link'] ) . '" ><strong>' . esc_html__( 'Pro', 'wp-gif-uploader' ) . '</strong></a>' ); ?></p></div>
+			<div class="notice notice-warning" ><p>
+			<?php
+			echo wp_kses_post(
+				sprintf(
+					/* translators: %s: linked word "Pro". */
+					esc_html__( 'You can apply all edits options on GIF without losing animation in %s version ', 'wp-gif-editor' ),
+					'<a target="_blank" href="' . esc_url( self::$plugin_info['pro_link'] ) . '" ><strong>' . esc_html__( 'Pro', 'wp-gif-editor' ) . '</strong></a>'
+				)
+			);
+			?>
+			</p></div>
 			<?php
 		}
 	}
@@ -119,7 +129,7 @@ class GIF_Editor {
 	 * @return array
 	 */
 	public static function plugin_pro_link( $links ) {
-		$links[] = '<a href="' . esc_url_raw( self::$plugin_info['pro_link'] ) . '" target="_blank" >' . __( 'Pro Version', 'wp-gif-uploader' ) . '</a>';
+		$links[] = '<a href="' . esc_url( self::$plugin_info['pro_link'] ) . '" target="_blank" >' . esc_html__( 'Pro Version', 'wp-gif-editor' ) . '</a>';
 		return $links;
 	}
 

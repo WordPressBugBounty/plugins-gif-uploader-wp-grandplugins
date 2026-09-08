@@ -1,362 +1,288 @@
-# Copyright (C) 2021 GrandPlugins
-# This file is distributed under the same license as the WP GIF Editor [GrandPlugins][Envato] plugin.
+# Copyright (C) 2026 GrandPlugins
+# This file is distributed under the same license as the WP GIF Uploader plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP GIF Editor [GrandPlugins][Envato] 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-gif-editor - envato\n"
+"Project-Id-Version: WP GIF Uploader 1.0.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-gif-editor\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-08-09T14:24:24+00:00\n"
+"POT-Creation-Date: 2026-09-08T14:16:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0\n"
+"X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wp-gif-editor\n"
 
 #. Plugin Name of the plugin
-msgid "WP GIF Editor [GrandPlugins][Envato]"
+#: gpls-wgr-wp-gif-uploader.php
+msgid "WP GIF Uploader"
 msgstr ""
 
 #. Plugin URI of the plugin
-msgid "https://grandplugins.com/product/quick-view-and-buy-now-for-woocommerce/"
+#: gpls-wgr-wp-gif-uploader.php
+msgid "https://grandplugins.com/product/wp-gif-editor/"
 msgstr ""
 
 #. Description of the plugin
-msgid "The plugin offers resizing GIF without losing animation."
+#: gpls-wgr-wp-gif-uploader.php
+msgid "The plugin offers uploading GIF and create sub-sizes without losing animation."
 msgstr ""
 
 #. Author of the plugin
+#: gpls-wgr-wp-gif-uploader.php
 msgid "GrandPlugins"
 msgstr ""
 
 #. Author URI of the plugin
+#: gpls-wgr-wp-gif-uploader.php
 msgid "https://profiles.wordpress.org/grandplugins/"
 msgstr ""
 
+#: gpls-wgr-wp-gif-uploader.php:255
+msgid "over 1 MB"
+msgstr ""
+
+#: gpls-wgr-wp-gif-uploader.php:256
+msgid "{heavy} of your GIFs are over 1 MB each"
+msgstr ""
+
+#: gpls-wgr-wp-gif-uploader.php:257
+msgid "A GIF downloads and starts playing the moment the page loads, all of it, whether or not the reader ever scrolls that far. Your {gifs} GIFs come to about {mb} MB. Pro can show the first frame as a still image and load the animation only once the page is ready, or on hover, or on click."
+msgstr ""
+
+#: gpls-wgr-wp-gif-uploader.php:258
+#: gpls-wgr-wp-gif-uploader.php:295
+msgid "See what Pro adds"
+msgstr ""
+
+#: gpls-wgr-wp-gif-uploader.php:278
+msgid "image sizes"
+msgstr ""
+
+#: gpls-wgr-wp-gif-uploader.php:279
+msgid "Each GIF you upload becomes {sizes} animated copies"
+msgstr ""
+
+#: gpls-wgr-wp-gif-uploader.php:280
+msgid "Keeping the animation in every subsize is this plugin's job, but your theme and plugins register {sizes} image sizes, so {gifs} GIFs turn into roughly {files} animated files on disk. Most sites display three or four sizes. Image Sizes Controller switches off the rest."
+msgstr ""
+
+#: gpls-wgr-wp-gif-uploader.php:281
+msgid "See Image Sizes Controller"
+msgstr ""
+
+#: gpls-wgr-wp-gif-uploader.php:292
+msgid "GIFs"
+msgstr ""
+
+#: gpls-wgr-wp-gif-uploader.php:293
+msgid "WordPress will not let you edit these {gifs} GIFs"
+msgstr ""
+
+#: gpls-wgr-wp-gif-uploader.php:294
+msgid "Crop, scale or rotate an animated GIF in the built-in image editor and it comes back as one still frame. Pro applies crop, scale, rotate and flip to GIFs with every frame intact, adds image or text watermarks, and can build a new GIF out of images you already have."
+msgstr ""
+
 #: includes/class-gif-base.php:96
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-base.php:96
 msgid "Preview GIF is expired, Please click on Preview GIF button again!"
 msgstr ""
 
+#: includes/class-gif-base.php:115
+msgid "Unable to connect to the filesystem"
+msgstr ""
+
+#: includes/class-gif-base.php:124
+msgid "Unable to save the preview GIF"
+msgstr ""
+
 #: includes/class-gif-base.php:212
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-base.php:212
 msgid "Failed to move preview GIF!"
 msgstr ""
 
-#: includes/class-gif-creator.php:111
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-creator.php:111
+#: includes/class-gif-creator.php:47
+msgid "Imagick module is not enabled, please contact your hosting customer service to enable it!"
+msgstr ""
+
+#: includes/class-gif-creator.php:77
 msgid "No Frames selected"
 msgstr ""
 
-#: includes/class-gif-creator.php:119
-#: includes/class-gif-creator.php:154
-#: includes/class-gif-watermark.php:245
-#: includes/class-gif-watermark.php:279
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-creator.php:119
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-creator.php:154
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-watermark.php:245
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-watermark.php:279
+#: includes/class-gif-creator.php:85
+#: includes/class-gif-creator.php:199
 msgid "The link has expired, please refresh the page!"
 msgstr ""
 
-#: includes/class-gif-creator.php:144
-#: includes/class-gif-watermark.php:270
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-creator.php:144
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-watermark.php:270
+#: includes/class-gif-creator.php:189
 msgid "GIF has been saved successfully!"
 msgstr ""
 
-#: includes/class-gif-decoder.php:76
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-decoder.php:76
-msgid "Failed to Open the GIF"
+#. translators: %s: linked word "Pro".
+#: includes/class-gif-editor.php:115
+msgid "You can apply all edits options on GIF without losing animation in %s version "
 msgstr ""
 
-#: includes/class-gif-decoder.php:96
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-decoder.php:96
-msgid "The image type is not GIF"
+#: includes/class-gif-editor.php:116
+msgid "Pro"
 msgstr ""
 
-#: includes/class-gif-decoder.php:105
-#: includes/Settings.php:511
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-decoder.php:105
-#: wp-gif-editor/wp-gif-editor/includes/Settings.php:487
-msgid "%s"
+#: includes/class-gif-editor.php:132
+msgid "Pro Version"
 msgstr ""
 
-#: includes/class-gif-encoder.php:120
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-encoder.php:120
-msgid "Need at least 2 frames for an animation."
+#: includes/class-gif-post.php:91
+msgid "WP GIF Editor [GrandPlugins]"
 msgstr ""
 
-#: includes/class-gif-encoder.php:121
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-encoder.php:121
-msgid "Resource is not a GIF image."
-msgstr ""
-
-#: includes/class-gif-encoder.php:122
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-encoder.php:122
-msgid "Only image resource variables, file paths, URLs or binary bitmap data are accepted."
-msgstr ""
-
-#: includes/class-gif-encoder.php:123
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-encoder.php:123
-msgid "Cannot make animation from animated GIF."
-msgstr ""
-
-#: includes/class-gif-encoder.php:124
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-encoder.php:124
-msgid "Loading from URLs is disabled by PHP."
-msgstr ""
-
-#: includes/class-gif-encoder.php:125
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-encoder.php:125
-msgid "Failed to load or invalid image (dir): \"%s\"."
-msgstr ""
-
-#: includes/class-gif-watermark.php:626
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-watermark.php:626
-msgid "Thumbnail"
-msgstr ""
-
-#: includes/class-gif-watermark.php:627
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-watermark.php:627
-msgid "Medium"
-msgstr ""
-
-#: includes/class-gif-watermark.php:628
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-watermark.php:628
-msgid "Large"
-msgstr ""
-
-#: includes/class-gif-watermark.php:629
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-watermark.php:629
-msgid "Full Size"
-msgstr ""
-
-#: includes/class-gif-watermark.php:686
-#: wp-gif-editor/wp-gif-editor/includes/class-gif-watermark.php:686
-msgid "Select size"
-msgstr ""
-
-#: includes/Settings.php:221
-#: wp-gif-editor/wp-gif-editor/assets/src/js/admin/settings-actions.js:35
+#: includes/Settings.php:168
 msgid "Select images"
 msgstr ""
 
-#: includes/Settings.php:222
-#: wp-gif-editor/wp-gif-editor/assets/src/js/admin/settings-actions.js:43
+#: includes/Settings.php:169
 msgid "Choose GIF Frames"
 msgstr ""
 
-#: includes/Settings.php:223
-#: includes/Settings.php:435
-#: templates/gif-watermark.php:9
-#: wp-gif-editor/wp-gif-editor/templates/gif-watermark.php:9
-#: wp-gif-editor/wp-gif-editor/assets/src/js/admin/settings-actions.js:49
+#: includes/Settings.php:170
 msgid "Select GIF"
 msgstr ""
 
-#: includes/Settings.php:224
-#: wp-gif-editor/wp-gif-editor/assets/src/js/admin/settings-actions.js:53
+#: includes/Settings.php:171
 msgid "Choose GIF"
 msgstr ""
 
-#: includes/Settings.php:225
-#: wp-gif-editor/wp-gif-editor/assets/src/js/admin/settings-actions.js:60
+#: includes/Settings.php:172
 msgid "Select Watermark"
 msgstr ""
 
-#: includes/Settings.php:226
-#: wp-gif-editor/wp-gif-editor/assets/src/js/admin/settings-actions.js:64
+#: includes/Settings.php:173
 msgid "Choose Watermark"
 msgstr ""
 
-#: includes/Settings.php:227
-#: wp-gif-editor/wp-gif-editor/assets/src/js/admin/settings-actions.js:94
+#: includes/Settings.php:174
 msgid "The selected watermark is bigger than the GIF"
 msgstr ""
 
-#: includes/Settings.php:228
-#: wp-gif-editor/wp-gif-editor/assets/src/js/admin/settings-actions.js:232
-#: wp-gif-editor/wp-gif-editor/assets/src/js/admin/settings-actions.js:1027
+#: includes/Settings.php:175
 msgid "failed to save the GIF!"
 msgstr ""
 
-#: includes/Settings.php:300
-#: wp-gif-editor/wp-gif-editor/includes/Settings.php:292
-msgid "Play GIF action"
+#: includes/Settings.php:176
+msgid "Create GIF from images, You can use up to 4 images. Upgrade to "
 msgstr ""
 
-#: includes/Settings.php:302
-#: wp-gif-editor/wp-gif-editor/includes/Settings.php:294
-msgid "Autostart"
+#: includes/Settings.php:176
+msgid "  for unlimited selected images"
 msgstr ""
 
-#: includes/Settings.php:303
-#: includes/Settings.php:430
-#: wp-gif-editor/wp-gif-editor/includes/Settings.php:295
-msgid "Hover"
-msgstr ""
-
-#: includes/Settings.php:304
-#: includes/Settings.php:431
-#: wp-gif-editor/wp-gif-editor/includes/Settings.php:296
-msgid "Click"
-msgstr ""
-
-#: includes/Settings.php:322
-#: includes/Settings.php:323
-#: wp-gif-editor/wp-gif-editor/includes/Settings.php:314
-#: wp-gif-editor/wp-gif-editor/includes/Settings.php:315
+#: includes/Settings.php:190
+#: includes/Settings.php:191
 msgid "GIF Editor"
 msgstr ""
 
-#: includes/Settings.php:359
-#: wp-gif-editor/wp-gif-editor/includes/Settings.php:351
-msgid "Create GIF"
-msgstr ""
-
-#: includes/Settings.php:360
-#: wp-gif-editor/wp-gif-editor/includes/Settings.php:352
-msgid "Watermark"
-msgstr ""
-
-#: includes/Settings.php:422
-msgid "GIF"
-msgstr ""
-
-#: includes/Settings.php:423
-msgid "Control the GIF play action"
-msgstr ""
-
-#: includes/Settings.php:424
-msgid "Image"
-msgstr ""
-
-#: includes/Settings.php:425
-msgid "Media"
-msgstr ""
-
-#: includes/Settings.php:426
-msgid "Replace GIF"
-msgstr ""
-
-#: includes/Settings.php:427
+#: includes/Settings.php:233
+#: templates/gif-settings.php:7
 msgid "Settings"
 msgstr ""
 
-#: includes/Settings.php:428
-msgid "Play Action"
+#: includes/Settings.php:234
+msgid "Create GIF"
 msgstr ""
 
-#: includes/Settings.php:429
-msgid "AutoStart"
+#: includes/Settings.php:235
+msgid "Watermark"
 msgstr ""
 
-#: includes/Settings.php:432
-msgid "GIF alt"
-msgstr ""
-
-#: includes/Settings.php:433
-msgid "Size"
-msgstr ""
-
-#: includes/Settings.php:434
-msgid "Write caption..."
-msgstr ""
-
-#: templates/gif-create-images.php:4
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:4
+#: templates/gif-create-images.php:10
 msgid "Select the images"
 msgstr ""
 
-#: templates/gif-create-images.php:7
-#: templates/gif-watermark.php:12
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:7
-#: wp-gif-editor/wp-gif-editor/templates/gif-watermark.php:12
+#: templates/gif-create-images.php:13
 msgid "Media Gallery"
 msgstr ""
 
 #: templates/gif-create-images.php:26
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:26
+msgid "Delay"
+msgstr ""
+
+#: templates/gif-create-images.php:37
 msgid "Animation speed [ in milliseconds ]"
 msgstr ""
 
-#: templates/gif-create-images.php:36
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:36
-msgid "GIF Loops [ 0 for infinite ]"
+#: templates/gif-create-images.php:48
+msgid "GIF Loops [ 0 for infinite ] ( Pro )"
 msgstr ""
 
-#: templates/gif-create-images.php:46
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:46
+#: templates/gif-create-images.php:59
 msgid "GIF Dimension"
 msgstr ""
 
-#: templates/gif-create-images.php:51
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:51
+#: templates/gif-create-images.php:64
 msgid "Equal to first frame"
 msgstr ""
 
-#: templates/gif-create-images.php:52
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:52
-msgid "Custom GIF Size"
+#: templates/gif-create-images.php:65
+msgid "Custom GIF Size ( Pro )"
 msgstr ""
 
-#: templates/gif-create-images.php:55
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:55
-msgid "Width"
-msgstr ""
-
-#: templates/gif-create-images.php:58
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:58
-msgid "Height"
-msgstr ""
-
-#: templates/gif-create-images.php:68
-#: templates/gif-watermark.php:107
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:68
-#: wp-gif-editor/wp-gif-editor/templates/gif-watermark.php:107
+#: templates/gif-create-images.php:73
 msgid "Preview GIF"
 msgstr ""
 
-#: templates/gif-create-images.php:78
-#: templates/gif-watermark.php:117
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:78
-#: wp-gif-editor/wp-gif-editor/templates/gif-watermark.php:117
+#: templates/gif-create-images.php:83
 msgid "Save Options"
 msgstr ""
 
-#: templates/gif-create-images.php:83
-#: templates/gif-watermark.php:122
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:83
-#: wp-gif-editor/wp-gif-editor/templates/gif-watermark.php:122
+#: templates/gif-create-images.php:88
 msgid "GIF Title"
 msgstr ""
 
-#: templates/gif-create-images.php:93
-#: templates/gif-watermark.php:132
-#: wp-gif-editor/wp-gif-editor/templates/gif-create-images.php:93
-#: wp-gif-editor/wp-gif-editor/templates/gif-watermark.php:132
+#: templates/gif-create-images.php:98
 msgid "Save GIF"
 msgstr ""
 
-#: templates/gif-watermark.php:16
-#: wp-gif-editor/wp-gif-editor/templates/gif-watermark.php:16
-msgid "Add Watermark"
+#: templates/gif-post-metabox.php:11
+msgid "First Frame Image"
 msgstr ""
 
-#: templates/gif-watermark.php:19
-#: wp-gif-editor/wp-gif-editor/templates/gif-watermark.php:19
-msgid "Image Watermark"
+#: templates/gif-post-metabox.php:12
+msgid "This image will be used to avoid slow page load due to GIF big size, The GIF will be loaded after the page finish loading."
 msgstr ""
 
-#: templates/gif-watermark.php:23
-#: wp-gif-editor/wp-gif-editor/templates/gif-watermark.php:23
-msgid "Text Watermark"
+#: templates/gif-post-metabox.php:16
+msgid "Create first frame image"
 msgstr ""
 
-#: templates/gif-watermark.php:64
-#: wp-gif-editor/wp-gif-editor/templates/gif-watermark.php:64
-msgid "Styles Options"
+#: templates/gif-post-metabox.php:24
+#: templates/gif-post-metabox.php:25
+msgid "Regenerate Subsizes"
+msgstr ""
+
+#: templates/gif-post-metabox.php:27
+msgid "Regenerate animted sub-sizes from the gif main image."
+msgstr ""
+
+#: templates/gif-settings.php:16
+msgid "Optimization"
+msgstr ""
+
+#: templates/gif-settings.php:18
+#: templates/gif-watermark.php:8
+msgid "This feature is part of "
+msgstr ""
+
+#: templates/gif-settings.php:18
+#: templates/gif-watermark.php:8
+msgid "Version"
+msgstr ""
+
+#: templates/gif-settings.php:28
+msgid "First Frame image"
+msgstr ""
+
+#: templates/gif-settings.php:39
+msgid "Use GIF's first frame image at page load, then load the GIF after the page is loaded."
+msgstr ""
+
+#: templates/gif-watermark.php:5
+msgid "Add image and text watermarks to GIFs."
 msgstr ""

@@ -3,17 +3,17 @@
 namespace GPLSCore\GPLS_PLUGIN_WGR;
 
 /**
- * Plugin Name:  WP GIF Uploader [[GrandPlugins]]
+ * Plugin Name:  WP GIF Uploader
  * Description:  The plugin offers uploading GIF and create sub-sizes without losing animation.
  * Author:       GrandPlugins
  * Author URI:   https://profiles.wordpress.org/grandplugins/
  * Plugin URI:   https://grandplugins.com/product/wp-gif-editor/
  * Domain Path:  /languages
- * Requires PHP: 5.6
- * Tested up to: 6.9
+ * Requires PHP: 7.0
+ * Tested up to: 7.1
  * Text Domain:  wp-gif-editor
  * Std Name:     gpls-wgr-wp-gif-editor
- * Version:      1.0.4
+ * Version:      1.0.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -154,6 +154,150 @@ if ( ! class_exists( __NAMESPACE__ . '\GPLS_WGR_WP_GIF_Editor' ) ) :
 			GIF_Creator::init( self::$plugin_info );
 			GIF_Editor::init( self::$plugin_info, self::$core );
 			GIF_Post::init( self::$plugin_info, self::$core );
+
+			self::funnel();
+		}
+
+		/**
+		 * What the GIFs in this library actually weigh.
+		 *
+		 * filesize() per attachment is cheap on a small library and wasteful on
+		 * a large one, so the scan is capped and the answer kept for a day.
+		 *
+		 * @return array
+		 */
+		public static function gif_weight() {
+			$cached = get_transient( 'gpls_wgr_gif_weight' );
+
+			if ( is_array( $cached ) ) {
+				return $cached;
+			}
+
+			$ids = get_posts(
+				array(
+					'post_type'      => 'attachment',
+					'post_mime_type' => 'image/gif',
+					'post_status'    => 'inherit',
+					'numberposts'    => 500,
+					'fields'         => 'ids',
+				)
+			);
+
+			$heavy = 0;
+			$bytes = 0;
+
+			foreach ( $ids as $id ) {
+				$file = get_attached_file( $id );
+
+				if ( ! $file || ! file_exists( $file ) ) {
+					continue;
+				}
+
+				$size   = (int) filesize( $file );
+				$bytes += $size;
+
+				if ( $size > MB_IN_BYTES ) {
+					$heavy++;
+				}
+			}
+
+			$weight = array(
+				'gifs'  => count( $ids ),
+				'heavy' => $heavy,
+				'mb'    => (int) round( $bytes / MB_IN_BYTES ),
+			);
+
+			set_transient( 'gpls_wgr_gif_weight', $weight, DAY_IN_SECONDS );
+
+			return $weight;
+		}
+
+		/**
+		 * Contextual upgrade prompts on the media screens.
+		 *
+		 * Every number below is read from the person's own library, so each
+		 * prompt is a true statement about their site rather than an advert.
+		 *
+		 * @return void
+		 */
+		private static function funnel() {
+			if ( ! class_exists( 'GPLS_Funnel' ) ) {
+				return;
+			}
+
+			\GPLS_Funnel::boot(
+				array(
+					'slug'       => 'gif-uploader-wp-grandplugins',
+					'name'       => 'WP GIF Uploader',
+					'textdomain' => 'wp-gif-editor',
+					'cap'        => 'upload_files',
+					'screens'    => array(
+						'upload',     // Media Library, list and grid.
+						'attachment', // Single attachment edit.
+						'media_page_' . self::$plugin_info['options_page'],
+					),
+					// A callable, so nothing here translates until admin_notices.
+					// This plugin boots on plugins_loaded, and translating that
+					// early trips WordPress 6.7's "translation loading was
+					// triggered too early" notice.
+					'offers'     => function () {
+						return array(
+							array(
+								'id'         => 'heavy_gifs',
+								'product'    => 'wp-gif-editor',
+								'when'       => function () {
+									$weight = self::gif_weight();
+
+									// One heavy GIF is a choice. Three is a pattern.
+									return $weight['heavy'] >= 3 ? $weight : false;
+								},
+								'stat'       => '{heavy}',
+								'stat_label' => esc_html__( 'over 1 MB', 'wp-gif-editor' ),
+								'title'      => esc_html__( '{heavy} of your GIFs are over 1 MB each', 'wp-gif-editor' ),
+								'body'       => esc_html__( 'A GIF downloads and starts playing the moment the page loads, all of it, whether or not the reader ever scrolls that far. Your {gifs} GIFs come to about {mb} MB. Pro can show the first frame as a still image and load the animation only once the page is ready, or on hover, or on click.', 'wp-gif-editor' ),
+								'cta'        => esc_html__( 'See what Pro adds', 'wp-gif-editor' ),
+							),
+							array(
+								'id'         => 'gif_subsizes',
+								'product'    => 'image-sizes-controller',
+								'when'       => function () {
+									$weight = self::gif_weight();
+									$sizes  = count( wp_get_registered_image_subsizes() );
+
+									if ( $sizes < 6 || $weight['gifs'] < 10 ) {
+										return false;
+									}
+
+									return array(
+										'sizes' => $sizes,
+										'gifs'  => $weight['gifs'],
+										'files' => $sizes * $weight['gifs'],
+									);
+								},
+								'stat'       => '{sizes}',
+								'stat_label' => esc_html__( 'image sizes', 'wp-gif-editor' ),
+								'title'      => esc_html__( 'Each GIF you upload becomes {sizes} animated copies', 'wp-gif-editor' ),
+								'body'       => esc_html__( 'Keeping the animation in every subsize is this plugin\'s job, but your theme and plugins register {sizes} image sizes, so {gifs} GIFs turn into roughly {files} animated files on disk. Most sites display three or four sizes. Image Sizes Controller switches off the rest.', 'wp-gif-editor' ),
+								'cta'        => esc_html__( 'See Image Sizes Controller', 'wp-gif-editor' ),
+							),
+							array(
+								'id'         => 'edit_gifs',
+								'product'    => 'wp-gif-editor',
+								'when'       => function () {
+									$weight = self::gif_weight();
+
+									return $weight['gifs'] >= 5 ? $weight : false;
+								},
+								'stat'       => '{gifs}',
+								'stat_label' => esc_html__( 'GIFs', 'wp-gif-editor' ),
+								'title'      => esc_html__( 'WordPress will not let you edit these {gifs} GIFs', 'wp-gif-editor' ),
+								'body'       => esc_html__( 'Crop, scale or rotate an animated GIF in the built-in image editor and it comes back as one still frame. Pro applies crop, scale, rotate and flip to GIFs with every frame intact, adds image or text watermarks, and can build a new GIF out of images you already have.', 'wp-gif-editor' ),
+								'cta'        => esc_html__( 'See what Pro adds', 'wp-gif-editor' ),
+							),
+						);
+					},
+				)
+			);
 		}
 
 		/**
@@ -186,6 +330,7 @@ if ( ! class_exists( __NAMESPACE__ . '\GPLS_WGR_WP_GIF_Editor' ) ) :
 		public function includes() {
 			require_once ABSPATH . WPINC . '/class-wp-image-editor.php';
 			require_once trailingslashit( plugin_dir_path( __FILE__ ) ) . 'core/bootstrap.php';
+			require_once trailingslashit( plugin_dir_path( __FILE__ ) ) . 'includes/Funnel.php';
 		}
 
 		/**
@@ -232,7 +377,7 @@ if ( ! class_exists( __NAMESPACE__ . '\GPLS_WGR_WP_GIF_Editor' ) ) :
 				'general_prefix' => 'gpls-plugins-general-prefix',
 				'classes_prefix' => 'gpls-wgr',
 				'review_link'    => 'https://wordpress.org/plugins/gif-uploader-wp-grandplugins/#reviews',
-				'pro_link'       => 'https://grandplugins.com/product/wp-gif-editor/?utm_source=free',
+				'pro_link'       => 'https://grandplugins.com/product/wp-gif-editor/?utm_source=free&utm_medium=pro_btn&utm_content=gif-uploader-wp-grandplugins',
 				'duplicate_base' => 'wp-gif-editor/gpls-wgr-wp-gif-editor.php',
 			);
 		}
